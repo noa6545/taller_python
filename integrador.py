@@ -10,8 +10,8 @@ while True:
         print("Debe ingresar un numero entero")
         
 suma_promedio = 0
-aprobado = 0
-reprobado = 0
+aprobados = 0
+reprobados = 0
 
 for estudiante in range (1, cantidad_estudiantes + 1):
     print("Estudiante", estudiante)
@@ -37,7 +37,6 @@ for estudiante in range (1, cantidad_estudiantes + 1):
         except ValueError:
             print("Debe ingresar un numero valido")
             
-
     while True:
         try:
             nota3 = float(input("Tercera nota (0-5): "))
@@ -48,5 +47,29 @@ for estudiante in range (1, cantidad_estudiantes + 1):
         except ValueError:
             print("Debe ingresar un numero valido")
             
+    promedio = (nota1 + nota2 + nota3)/3
+    if promedio >=3:
+        print("Promedio", round(promedio,2))
+        print("Estado: Aprobado")
+        aprobados=aprobados+1
+    else:
+        print("Promedio", round(promedio,2))
+        print("Estado: Reprobado")
+        reprobados=reprobados+1
+        
+    suma_promedio = suma_promedio + promedio 
+    
+#Calcular promedio general
+promedio_grupo =suma_promedio/cantidad_estudiantes
+
+#Mostrar resumen 
+print("\n========================")
+print("    RESUMEN DEL GRUPO ")
+print("========================")
+print("Total estudiantes: ", cantidad_estudiantes)
+print("Aprobados: ", aprobados)
+print("Reprobados: ", reprobados)
+print("Promedio general: ", round(promedio_grupo, 2))
+print("========================")
 
     
